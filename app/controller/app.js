@@ -6,8 +6,8 @@ export default class AppController {
     this.el = el;
     this.store = store;
 
-    this.contactForm = new ContactFormView(el.querySelector('.contact-form'), store);
-    this.contactList = new ContactListView(el.querySelector('.grid'), store);
+    this.contactForm = new ContactFormView(this.el.querySelector('.sidebar'), this.store);
+    this.contactList = new ContactListView(this.el.querySelector('.grid'), this.store);
   }
 
   created() {
@@ -19,7 +19,8 @@ export default class AppController {
     this.contactForm.mounted();
     this.contactList.mounted();
 
-    const dataString = window.localStorage.contacts || '{ contacts: [] }';
-    this.store.dispatch({ type: 'CONTACT@FIND_ALL', data: JSON.parse(dataString) });
+
+    const data = JSON.parse(window.localStorage.contacts || '[]');
+    this.store.dispatch({ type: 'CONTACT@FIND_ALL', data });
   }
 }

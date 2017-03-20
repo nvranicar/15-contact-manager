@@ -1,3 +1,5 @@
+import { createContact } from '../actions';
+
 export default class ContactFormView {
   constructor(el, store) {
     this.el = el;
@@ -8,15 +10,13 @@ export default class ContactFormView {
     this.el.addEventListener('submit', (ev) => {
       ev.preventDefault();
 
-      const data = [{
-        firstName: this.el.querySelector('.contact-form__first-name').value,
-        lastName: this.el.querySelector('.contact-form__last-name').value,
-        address: this.el.querySelector('.contact-form__street').value,
-        city: this.el.querySelector('.contact-form__city').value,
-        state: this.el.querySelector('.contact-form__state').value,
-      }];
+      const firstName = this.el.querySelector('.contact-form__first-name').value;
+      const lastName = this.el.querySelector('.contact-form__last-name').value;
+      const address = this.el.querySelector('.contact-form__street').value;
+      const city = this.el.querySelector('.contact-form__city').value;
+      const state = this.el.querySelector('.contact-form__state').value;
 
-      this.store.dispatch({ type: 'CONTACT@CREATE', data });
+      this.store.dispatch(createContact({ firstName, lastName, address, city, state }));
     });
   }
 }

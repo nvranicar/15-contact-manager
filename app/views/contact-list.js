@@ -1,3 +1,5 @@
+import { removeContact } from '../actions';
+
 class ItemView {
   constructor(data, store) {
     this.data = data;
@@ -20,7 +22,8 @@ class ItemView {
     </div>`;
   }
 
-  mounted() {}
+  mounted() {
+  }
 
   render() {
     this.el.querySelector('.contact__first-name').innerText = this.data.firstName;
@@ -40,6 +43,11 @@ export default class ContactListView {
   mounted() {
     this.store.subscribe(() => {
       this.render();
+    });
+
+    const del = document.querySelector('.delete');
+    del.addEventListener('click', () => {
+      this.store.dispatch(removeContact(this.data.id));
     });
   }
 

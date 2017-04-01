@@ -15,9 +15,9 @@ export function removeContact(id) {
   };
 }
 
-export function findContacts() {
+export function findContacts(data) {
   return {
     type: 'CONTACT@FIND_ALL',
-    data: []
+    data
   };
 }

@@ -1,5 +1,6 @@
 import ContactFormView from '../views/contact-form';
 import ContactListView from '../views/contact-list';
+import { findContacts } from '../actions';
 
 export default class AppController {
   constructor(el, store) {
@@ -21,6 +22,6 @@ export default class AppController {
 
 
     const data = JSON.parse(window.localStorage.contacts || '[]');
-    this.store.dispatch({ type: 'CONTACT@FIND_ALL', data });
+    this.store.dispatch(findContacts(data));
   }
 }

@@ -23,6 +23,16 @@ class ItemView {
   }
 
   mounted() {
+    const store = this.store;
+    const data = this.data;
+    // debugger;
+    document.addEventListener('DOMContentLoaded', function () {
+      this.el = document.querySelector('.delete');
+      this.el.addEventListener('click', () => {
+        // debugger;
+        store.dispatch(removeContact(data.id));
+      });
+    });
   }
 
   render() {
@@ -44,11 +54,6 @@ export default class ContactListView {
     this.store.subscribe(() => {
       this.render();
     });
-
-    const del = document.querySelector('.delete');
-    del.addEventListener('click', () => {
-      this.store.dispatch(removeContact(this.data.id));
-    });
   }
 
   render() {
@@ -57,8 +62,8 @@ export default class ContactListView {
 
     contacts.forEach((current) => {
       const view = new ItemView(current, this.store);
-      view.mounted();
       view.render();
+      view.mounted();
 
       this.el.appendChild(view.el);
     });

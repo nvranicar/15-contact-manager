@@ -1,6 +1,113 @@
 // @import 'yoga';
-// @import 'normalize';
+@import 'normalize';
 
 // $fa-font-path: '//netdna.bootstrapcdn.com/font-awesome/4.3.0/fonts';
 // @import 'font-awesome';
 @import 'box-sizing';
+
+$c-blue: #00abff;
+$c-lightBlue: #d1fdff;
+$c-green: #56bd1f;
+$c-white: #fff;
+$c-grey: #e6e6e6;
+$c-darkGrey: #98999c;
+$c-red: #f74a4a;
+
+body {
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+ul {
+  padding-left: none;
+  list-style: none;
+}
+
+.container {
+  max-width: 65rem;
+  margin: 0 auto;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 20vw;
+  height: 100%;
+  background: $c-blue;
+  overflow: scroll;
+  box-shadow: 0.1rem 0.1rem 0.1rem rgba(#000,.53);
+
+  &__header {
+    background: $c-lightBlue;
+    margin: 0;
+    padding: 1rem;
+    max-width: 100%;
+  }
+}
+
+.contact-form {
+  > * {
+    margin: 1rem;
+  }
+}
+
+.control {
+  display: flex;
+  flex-direction: column;
+}
+
+.submit {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3rem;
+  background: $c-green;
+  border: none;
+  color: $c-white;
+}
+
+.section {
+  padding: 1rem;
+  padding-left: 18vw;
+  background: $c-grey;
+  height: 100vh;
+  overflow: auto;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+
+  &__item {
+    flex-grow: 1;
+    flex-basis: calc(100% / 3) - 2rem;
+    min-width: 15rem;
+    margin: 1rem;
+    padding: 0;
+  }
+}
+
+.contact {
+  background: $c-white;
+  border: $c-darkGrey 0.1rem solid;
+  border-radius: 0.2rem;
+  padding: 0 1rem;
+  position: relative;
+  padding-bottom: 3.5rem;
+}
+
+.delete {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3rem;
+  background: $c-red;
+  color: $c-white;
+  border: none;
+}

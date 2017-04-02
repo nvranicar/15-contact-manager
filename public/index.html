@@ -1,11 +1,78 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
-  <title>15-contact-manager</title>
+  <title>Contact Manager</title>
   <link rel="stylesheet" href="/app.css">
 </head>
+
 <body>
+  <div class="app">
+    <form class="sidebar" action="">
+      <div class="container">
+        <h2 class="sidebar__header">New Contact</h2>
+        <div class="contact-form">
+          <div class="control">
+            <label class="label">First Name</label>
+            <input type="text" class="input contact-form__first-name">
+          </div>
+          <div class="control">
+            <label class="label">Last Name</label>
+            <input type="text" class="input contact-form__last-name">
+          </div>
+          <div class="control">
+            <label class="label">Street</label>
+            <input type="text" class="input contact-form__street">
+          </div>
+          <div class="control">
+            <label class="label">City</label>
+            <input type="text" class="input contact-form__city">
+          </div>
+          <div class="control">
+            <label class="label">State</label>
+            <input type="text" class="input contact-form__state">
+          </div>
+        </div>
+        <button class="submit">Submit</button>
+      </div>
+    </form>
+    <div class="section">
+      <div class="container">
+        <ul class="grid">
+          <li class="grid__item">
+            <div class="contact">
+              <h2 class="contact__name">
+              <span class="contact__last-name">Tablada, </span>
+              <span class="contact__first-name">Ryan</span>
+            </h2>
+              <p class="contact__address">123 1st Ave S</p>
+              <p class="contact__location">
+                <span class="contact__city">Nashville, </span>
+                <span class="contact__state">TN</span>
+              </p>
+              <button class="delete">Delete</button>
+            </div>
+          </li>
+          <li class="grid__item">
+            <div class="contact">
+              <h2 class="contact__name">
+              <span class="contact__last-name">Tablada, </span>
+              <span class="contact__first-name">Ryan</span>
+            </h2>
+              <p class="contact__address">123 1st Ave S</p>
+              <p class="contact__location">
+                <span class="contact__city">Nashville, </span>
+                <span class="contact__state">TN</span>
+              </p>
+              <button class="delete">Delete</button>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
   <script src="/app.js" charset="utf-8"></script>
 </body>
+
 </html>
